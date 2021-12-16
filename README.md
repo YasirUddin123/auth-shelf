@@ -36,6 +36,30 @@ Our client, Prime Digital Academy: Room 2, has asked for an app to simulate the 
 
 ### BASE MODE
 
+### Check List
+    [] Team Approach
+        [] Take a 10 minute break every hour but if anyone needs a break more often, that's cool too!
+        [] Solo work for 30-40 minutes, check in as a group for 5-10 min, break, repeat.
+        [] This is a open and safe environment! Be transparent if any of us are struggling and support each other! :)
+    [] Development Set-up
+        [] Set up database called auth_shelf and create a user table: user-update
+        [] Run npm install
+        [] Create a .env file at the ROOT of the project
+            [] Paste `SERVER_SESSION_SECRET=superDuperSecret` into the file
+            [] Replace superDuperSecret with a long random string via https://passwordsgenerator.net/
+            [] Start postgres
+            [] Run npm run server
+            [] Run npm run client
+            [] Navigate to localhost:3000
+    [] Base Mode
+        [] Take 10 minutes to read through the components via Lay of the Land
+        [] Display all items on the Shelf Page/Component in a list or table.
+        [] Add items to the shelf on the Shelf Page/Component. Each new item added will go to the database.
+            NOTE: Image url should be a full path to an existing image on the web. You should not attempt to implement image upload for this
+        [] Delete items from the shelf on the Shelf Page/Component. Each new item added will go to the database.
+            NOTE: This should require client and server changes. An unauthenticated attacker from Postman should not be able to delete anything.
+
+
 #### FEATURES
 
 We recommend working in groups of 4 or 6 and pair programming for this project. Each pair should take on one of the following features. You will want to identify any tasks that need to be finished in a particular order as a group to avoid merge conflicts. Each of the following features should be on a separate route.
