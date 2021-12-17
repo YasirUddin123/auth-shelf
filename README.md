@@ -37,10 +37,10 @@ Our client, Prime Digital Academy: Room 2, has asked for an app to simulate the 
 ### BASE MODE
 
 ### Check List
-    [] Team Approach
-        [] Take a 10 minute break every hour but if anyone needs a break more often, that's cool too!
-        [] Solo work for 30-40 minutes, check in as a group for 5-10 min, break, repeat.
-        [] This is a open and safe environment! Be transparent if any of us are struggling and support each other! :)
+    [x] Team Approach
+        [x] Take a 10 minute break every hour but if anyone needs a break more often, that's cool too!
+        [x] Solo work for 30-40 minutes, check in as a group for 5-10 min, break, repeat.
+        [x] This is a open and safe environment! Be transparent if any of us are struggling and support each other! :)
     [x] Development Set-up
         [x] Set up database called auth_shelf and create a user table: user-update
         [x] Run npm install
