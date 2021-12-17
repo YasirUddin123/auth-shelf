@@ -1,8 +1,11 @@
 import React from 'react';
 // added imports
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 
 function ShelfPage() {
+
+  const dispatch = useDispatch();
 
   // setup dispatch to FETCH_SHELF_ITEMS on page load
   useEffect(() => {
