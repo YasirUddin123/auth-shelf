@@ -1,14 +1,11 @@
-// Maybe Kelsey's shelfItems reducer goes here
-// Create a shelf reducer. Boilerplate stuff below.
+// shelf items reducer 
 const shelfItems = (state = [], action) => {
     switch (action.type) {
-    case 'SET_SHELFITEMS':
+    case 'SET_SHELF_ITEMS':
         return action.payload;
-    case 'CLEAR_SHELFITEMS':
-        return [];
     default:
         return state;
     }
-}
+};
 
 export default shelfItems;
