@@ -1,5 +1,22 @@
+
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
+
+//Kesley's fetchItem (GET) saga function here
+//our functions!
+function* createShelfItem(action) {
+    console.log('createItem action:', action);
+
+    const response = yield axios({
+        method: 'POST',
+        url: '/api/shelf',
+        data: {
+           item: action.payload
+        }
+    })
+
+    yield put({ type: 'SET_SHELF_ITEMS' })
+};
 
 // saga function to axios GET shelf items
 function* fetchShelfItems(action) {
@@ -23,6 +40,7 @@ function* fetchShelfItems(action) {
 // function to intercept dispatches
 function* shelfItemsSaga() {
     yield takeEvery('FETCH_SHELF_ITEMS', fetchShelfItems);
+    yield takeEvery('CREATE_ITEM', createShelfItem);
 };
 
 export default shelfItemsSaga;

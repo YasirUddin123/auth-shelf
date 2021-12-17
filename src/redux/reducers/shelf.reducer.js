@@ -1,4 +1,3 @@
-
 // shelf items reducer 
 const shelfItems = (state = [], action) => {
     switch (action.type) {
