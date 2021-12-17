@@ -1,14 +1,12 @@
 
-// Create a shelf reducer. Boilerplate stuff below. 
-const pets = (state = [], action) => {
+// shelf items reducer 
+const shelfItems = (state = [], action) => {
     switch (action.type) {
-    case 'SET_PETS':
+    case 'SET_SHELF_ITEMS':
         return action.payload;
-    case 'CLEAR_PETS':
-        return [];
     default:
         return state;
     }
-}
+};
 
-export default pets;
+export default shelfItems;
