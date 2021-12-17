@@ -52,9 +52,9 @@ Our client, Prime Digital Academy: Room 2, has asked for an app to simulate the 
         [x] Run npm run client
         [x] Navigate to localhost:3000
     [] Base Mode
-        [] Take 10 minutes to read through the components via Lay of the Land and come back to talk about how to divy up stuff
-        [] Display all items on the Shelf Page/Component in a list or table.
-        [] Add items to the shelf on the Shelf Page/Component. Each new item added will go to the database.
+        [x] Take 10 minutes to read through the components via Lay of the Land and come back to talk about how to divy up stuff
+        [x] Display all items on the Shelf Page/Component in a list or table.
+        [x] Add items to the shelf on the Shelf Page/Component. Each new item added will go to the database.
             NOTE: Image url should be a full path to an existing image on the web. You should not attempt to implement image upload for this
         [] Delete items from the shelf on the Shelf Page/Component. Each new item added will go to the database.
             NOTE: This should require client and server changes. An unauthenticated attacker from Postman should not be able to delete anything.
@@ -82,11 +82,11 @@ An authenticated user should be able to delete items from the shelf if they were
 
 ### Stretch Goals
 
-- Ability to edit an existing item on the shelf from the info page.
-- Have anyone, not just logged in users, be able to see what is on the shelf, but not edit, remove, nor add.
+- Ability to edit an existing item on the shelf from the info page. (Yasir)
+- Have anyone, not just logged in users, be able to see what is on the shelf, but not edit, remove, nor add. (Kelsey)
 - Add a new route to display all items for a specific user called "My Shelf". The client-side url should be `/shelf/2` where `/2` should be the id of the logged in user. Only the items associated with the specific logged in user should be displayed on this new page.
 - Use "Filestack" for image upload on the add page.
-- Style the application with Material-UI.
+- Style the application with Material-UI.(Claire)
 
 ---
 
