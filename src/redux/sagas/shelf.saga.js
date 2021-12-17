@@ -35,11 +35,20 @@ function* fetchShelfItems() {
     }
 }; // end fetchShelfItems
 
+function* deleteItem(action) {
+    console.log('deleteItem action:', action);
+    const response = yield axios({
+        method: 'DELETE',
+        url: `/api/shelf/${action.payload}`,
+    })
+    yield put({ type: 'FETCH_SHELF_ITEMS' })
+}
 
 // function to intercept dispatches
 function* shelfItemsSaga() {
     yield takeEvery('FETCH_SHELF_ITEMS', fetchShelfItems);
     yield takeEvery('CREATE_ITEM', createShelfItem);
+    yield takeEvery('DELETE_ITEM', deleteItem)
 };
 
 export default shelfItemsSaga;

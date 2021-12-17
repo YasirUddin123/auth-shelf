@@ -9,6 +9,7 @@ function ShelfPage() {
   const dispatch = useDispatch();
   // access shelfItems reducer
   const shelfItems = useSelector(store => store.shelfItems)
+  const user = useSelector(store => store.user)
 
   const onItemAdd = () => {
     // console.log('Button works!')
@@ -26,6 +27,13 @@ function ShelfPage() {
   useEffect(() => {
     dispatch({ type: 'FETCH_SHELF_ITEMS' })
   }, []);
+
+  function deleteItem (itemID) {
+    dispatch ({
+      type: 'DELETE_ITEM',
+      payload: itemID
+    })
+  }
 
   return (
     <div className="container">
@@ -57,6 +65,7 @@ function ShelfPage() {
               height="200"
             >
             </img>
+            {item.user_id === user.id && <button onClick={() => {deleteItem(item.id)}}>Delete</button>}
           </li>
         })}
       </ul>
