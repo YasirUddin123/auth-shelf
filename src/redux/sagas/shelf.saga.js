@@ -9,7 +9,11 @@ function* fetchShelfItems(action) {
             url: '/api/shelf'
         })
         console.log('fetchShelfItems, response from DB:', response.data);
-        // TO DO: update shelf items reducer
+        // update shelf items reducer with DB response.data
+        yield put({
+            type: 'SET_SHELF_ITEMS',
+            payload: response.data
+        })
     } catch(err) {
         console.error('fetchShelfItems error', err);
     }
@@ -22,20 +26,3 @@ function* shelfItemsSaga() {
 };
 
 export default shelfItemsSaga;
-
-
-// function* fetchPets(action) {
-//     try {
-//         const response = yield axios({
-//             method: 'GET',
-//             url: '/api/pets'
-//         })
-//         console.log(response.data)
-//         yield put({
-//             type: 'SET_PETS',
-//             payload: response.data
-//         })
-//     } catch (err) {
-//         console.error('fetchPets error', err)
-//     }
-// }

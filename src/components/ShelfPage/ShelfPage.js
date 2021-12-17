@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 function ShelfPage() {
 
   const dispatch = useDispatch();
+  // access shelfItems reducer
+  const pets = useSelector(store => store.pets)
 
   // setup dispatch to FETCH_SHELF_ITEMS on page load
   useEffect(() => {
