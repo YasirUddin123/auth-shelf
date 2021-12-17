@@ -12,10 +12,8 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/', rejectUnauthenticated, (req, res) => {
   // console.log('in shelf.router, GET route');
 
-  // only get id, description, image_url from item table
   let queryText = `
-    SELECT "id", "description", "image_url"
-    FROM "item";
+    SELECT * FROM "item";
     `
 
   pool.query(queryText)
@@ -33,8 +31,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  */
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-  console.log('is authenticated?', req.isAuthenticated());
-  console.log('user', req.user);
+  // console.log('is authenticated?', req.isAuthenticated());
+  // console.log('user', req.user);
+  console.log('req.body', req.body);
   const sqlText = `
     INSERT INTO "item"
       ("description", "image_url", "user_id")
@@ -42,7 +41,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       ($1, $2, $3);
   `;
   const sqlValues = [
-    req.body.item,
+    req.body.description,
+    req.body.image_url,
     req.user.id
   ];
   pool.query(sqlText, sqlValues)

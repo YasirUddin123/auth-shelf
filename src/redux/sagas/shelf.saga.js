@@ -6,20 +6,19 @@ import axios from 'axios';
 //our functions!
 function* createShelfItem(action) {
     console.log('createItem action:', action);
-
+    console.log('createShelfItem action.payload:', action.payload);
     const response = yield axios({
         method: 'POST',
         url: '/api/shelf',
-        data: {
-           item: action.payload
-        }
-    })
+        data: action.payload
+    });
 
-    yield put({ type: 'SET_SHELF_ITEMS' })
+    yield put({ type: 'FETCH_SHELF_ITEMS' })
+    
 };
 
 // saga function to axios GET shelf items
-function* fetchShelfItems(action) {
+function* fetchShelfItems() {
     try {
         const response = yield axios({
             method: 'GET',
@@ -31,7 +30,7 @@ function* fetchShelfItems(action) {
             type: 'SET_SHELF_ITEMS',
             payload: response.data
         })
-    } catch(err) {
+    } catch (err) {
         console.error('fetchShelfItems error', err);
     }
 }; // end fetchShelfItems

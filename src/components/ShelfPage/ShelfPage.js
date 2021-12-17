@@ -9,18 +9,18 @@ function ShelfPage() {
   const dispatch = useDispatch();
   // access shelfItems reducer
   const shelfItems = useSelector(store => store.shelfItems)
-  
-  const onItemAdd = (e) => {
-        e.preventDefault();
-        const item={
-          description: descriptionInput,
-          image_url: imageInput
-        }
-        dispatch({
-            type: 'CREATE_ITEM',
-            payload: item
-        })
-  }
+
+  const onItemAdd = () => {
+    // console.log('Button works!')
+    const item = {
+      description: descriptionInput,
+      image_url: imageInput
+    }
+    dispatch({
+      type: 'CREATE_ITEM',
+      payload: item
+    })
+  };
 
   // setup dispatch to FETCH_SHELF_ITEMS on page load
   useEffect(() => {
@@ -29,22 +29,22 @@ function ShelfPage() {
 
   return (
     <div className="container">
-    
-           <h2>Shelf</h2>
-            <form onSubmit={onItemAdd}>
-                <input
-                    placeholder="item description"
-                    value={descriptionInput}
-                    onChange={(e) => setDescriptionInput(e.target.value)}
-                />
-                <input
-                    placeholder="item image URL"
-                    value={imageInput}
-                    onChange={(e) => setImageInput(e.target.value)}
-                />
-            <button>Add Item</button>
-            </form>
-            <p>All of the available items can be seen here.</p>
+
+      <h2>Shelf</h2>
+      <form onSubmit={() => {onItemAdd()}}>
+        <input
+          placeholder="item description"
+          value={descriptionInput}
+          onChange={(e) => setDescriptionInput(e.target.value)}
+        />
+        <input
+          placeholder="item image URL"
+          value={imageInput}
+          onChange={(e) => setImageInput(e.target.value)}
+        />
+        <button>Add Item</button>
+      </form>
+      <p>All of the available items can be seen here.</p>
 
       <ul>
         {shelfItems.map((item) => {
@@ -55,7 +55,7 @@ function ShelfPage() {
               alt="item image"
               width="200"
               height="200"
-              >
+            >
             </img>
           </li>
         })}
