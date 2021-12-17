@@ -2,14 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
-const { rejectUnauthenticated } = require('../modules/authentication-middleware')
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * Get all of the items on the shelf
  * Non logged in users should not have access
     to this page (rejectUnauthenticated)
  */
-router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/', (req, res) => {
   // console.log('in shelf.router, GET route');
 
   let queryText = `
