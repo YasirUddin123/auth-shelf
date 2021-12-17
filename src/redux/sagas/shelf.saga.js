@@ -8,6 +8,7 @@ function* fetchShelfItems(action) {
             method: 'GET',
             url: '/api/shelf'
         })
+        console.log('fetchShelfItems, response from DB:', response.data);
         // TO DO: update shelf items reducer
     } catch(err) {
         console.error('fetchShelfItems error', err);
@@ -37,25 +38,4 @@ export default shelfItemsSaga;
 //     } catch (err) {
 //         console.error('fetchPets error', err)
 //     }
-// }
-
-// function* createPet(action) {
-//     console.log('createPet action:', action);
-//     // POST the new pet
-//     const response = yield axios({
-//         method: 'POST',
-//         url: '/api/pets',
-//         data: {
-//             petName: action.payload
-//         }
-//     })
-//     // Re-ren the fetchPets function
-//     yield put({ type: 'FETCH_PETS' })
-
-// }
-
-
-// function* petsSaga() {
-//     yield takeEvery('FETCH_PETS', fetchPets);
-//     yield takeEvery('CREATE_PET', createPet);
 // }

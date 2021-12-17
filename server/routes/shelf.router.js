@@ -1,12 +1,29 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware')
 
 /**
  * Get all of the items on the shelf
+ * Non logged in users should not have access
+    to this page (rejectUnauthenticated)
  */
-router.get('/', (req, res) => {
-  res.sendStatus(200); // For testing only, can be removed
+router.get('/', rejectUnauthenticated, (req, res) => {
+  console.log('in shelf.router, GET route');
+
+  // only get description and image_url from item table
+  let queryText = `
+    SELECT "description", "image_url"
+    FROM "item";`
+
+  pool.query(queryText)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
 });
 
 /**
