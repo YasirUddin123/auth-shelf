@@ -9,12 +9,13 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
     to this page (rejectUnauthenticated)
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
-  console.log('in shelf.router, GET route');
+  // console.log('in shelf.router, GET route');
 
-  // only get description and image_url from item table
+  // only get id, description, image_url from item table
   let queryText = `
-    SELECT "description", "image_url"
-    FROM "item";`
+    SELECT "id", "description", "image_url"
+    FROM "item";
+    `
 
   pool.query(queryText)
     .then((result) => {
